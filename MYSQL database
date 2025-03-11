@@ -1,0 +1,23 @@
+-- Create database
+CREATE DATABASE IF NOT EXISTS db;
+
+-- Use the database
+USE db;
+
+-- Create BloodBank table
+CREATE TABLE IF NOT EXISTS BloodBank (
+    Blood_Grp VARCHAR(5) PRIMARY KEY,
+    units INT NOT NULL DEFAULT 0
+);
+
+-- Insert sample data
+INSERT INTO BloodBank (Blood_Grp, units) VALUES
+('A+', 10),
+('A-', 8),
+('B+', 15),
+('B-', 5),
+('O+', 20),
+('O-', 7),
+('AB+', 12),
+('AB-', 3)
+ON DUPLICATE KEY UPDATE units=VALUES(units);
